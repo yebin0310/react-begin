@@ -1,27 +1,30 @@
 import { useState, useEffect } from "react";
 function App() {
-  const [counter, setCounter] = useState(0);
-  const [keyword, setKeyword] = useState("");
-  const onClick = () => setCounter(prev => prev + 1);
-  console.log("i run all the time");
-  const onChange = (event) => {
-    setKeyword(event.target.value);
-  };
-  useEffect(() => {
-    console.log("call the api");
-  }, []);
-  useEffect(() => {
-    if (keyword !== "" && keyword.length > 5) {
-      console.log("search for", keyword);
+  const [toDo, setToDo] = useState("");
+  const [toDos, setToDos] = useState([]);
+  const onChange = (event) => setToDo(event.target.value);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    if (toDo === "") {
+      return;
     }
-  }, [keyword]);
-  //keyword 가 변화할때 만 실행하고 싶다면 [] 안에 keyword를 쓰셈
-  // 두개 도 넣을수 있음 둘다 변화할때
+    setToDo("");
+    setToDos(currentArray =>
+      [toDo, ...currentArray],
+    );
+  };
+  console.log(toDos);
   return (
     <div>
-      <input value={keyword} onChange={onChange} type="text" placeholder="Search here"></input>
-      <h1>{counter}</h1>
-      <button onClick={onClick}>click me</button>
+      <h1>My to dos ({toDos.length})</h1>
+      <form onSubmit={onSubmit}>
+        <input onChange={onChange} value={toDo} type="text" placeholder="write your to do"></input>
+        <button>add todo</button>
+      </form>
+      <hr />
+      <ul>
+        {toDos.map((item, index) => <li key={index}>{item}</li>)}
+      </ul>
     </div>
   );
 }
