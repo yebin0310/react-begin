@@ -1,10 +1,13 @@
 {
   "files": {
-    "main.js": "/yebin0310/react-begin.git/static/js/main.090909f1.js",
-    "index.html": "/yebin0310/react-begin.git/index.html",
-    "main.090909f1.js.map": "/yebin0310/react-begin.git/static/js/main.090909f1.js.map"
+    "main.css": "/react-begin/static/css/main.2536516f.css",
+    "main.js": "/react-begin/static/js/main.4566d454.js",
+    "index.html": "/react-begin/index.html",
+    "main.2536516f.css.map": "/react-begin/static/css/main.2536516f.css.map",
+    "main.4566d454.js.map": "/react-begin/static/js/main.4566d454.js.map"
   },
   "entrypoints": [
-    "static/js/main.090909f1.js"
+    "static/css/main.2536516f.css",
+    "static/js/main.4566d454.js"
   ]
 }
